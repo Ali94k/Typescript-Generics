@@ -24,4 +24,4 @@ function merge3<T extends object, U extends object>(objA: T, objB: U) {
 }
 
 const mergedObj3 = merge2({name: 'Max', hobbies: ['Sports']}, 30) //  fails silently
-const mergedObj4 = merge3({name: 'Max', hobbies: ['Sports']}, 30) //  fails with error
+// const mergedObj4 = merge3({name: 'Max', hobbies: ['Sports']}, 30) //  fails with error
