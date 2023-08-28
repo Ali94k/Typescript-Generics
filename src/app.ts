@@ -55,7 +55,6 @@ function extractAndConvert<T extends object, U extends keyof T>(
   return 'Value: ' + obj[key]
 }
 
-
 // Generic Classes
 
 class DataStorage<T extends string | number | boolean> {
@@ -89,7 +88,6 @@ const numberAndTextStorage = new DataStorage<number | string>()
 numberAndTextStorage.addItem('Max')
 numberAndTextStorage.addItem(1)
 
-
 // Generic Utility Types
 
 // Partial
@@ -118,4 +116,26 @@ function createCourseGoal(
 const names: Readonly<string[]> = ['Max', 'Anna']
 // names.push('Manu') // Error: Property 'push' does not exist on type 'readonly string[]'
 
+//record
 
+interface CatInfo {
+  age: number
+  breed: string
+}
+
+type CatName = 'miffy' | 'boris' | 'mordred'
+
+const cats: Record<CatName, CatInfo> = {
+  miffy: { age: 10, breed: 'Persian' },
+  boris: { age: 5, breed: 'Maine Coon' },
+  mordred: { age: 16, breed: 'British Shorthair' },
+}
+
+//Error Property 'mordred' is missing in type
+//'{ miffy: { age: number; breed: string; }; boris: { age: number; breed: string; }; }'
+//but required in type 'Record<CatName, CatInfo>'.
+
+// const cats2: Record<CatName, CatInfo> = {
+//   miffy: { age: 10, breed: 'Persian' },
+//   boris: { age: 5, breed: 'Maine Coon' },
+// }
