@@ -25,3 +25,22 @@ function merge3<T extends object, U extends object>(objA: T, objB: U) {
 
 const mergedObj3 = merge2({name: 'Max', hobbies: ['Sports']}, 30) //  fails silently
 // const mergedObj4 = merge3({name: 'Max', hobbies: ['Sports']}, 30) //  fails with error
+
+
+// Another example
+
+interface Lengthy {
+    length: number
+}
+
+function countAndDescribe<T extends Lengthy>(element: T): [T, string]{
+    let descriptionText = 'Got no value'
+    if(element.length === 1){
+        descriptionText = 'Got 1 element'
+    } else if(element.length > 1){
+        descriptionText = 'Got ' + element.length + ' elements'
+    }
+    return [element, descriptionText]
+}
+
+console.log(countAndDescribe('Hi there!'))
